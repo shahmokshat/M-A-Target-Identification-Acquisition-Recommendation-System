@@ -2,145 +2,394 @@
 
 ## Project Overview
 
-This project is a finance analytics model designed to identify and rank potential acquisition targets using publicly available financial and market data.
+This project is a finance analytics model that identifies and ranks potential acquisition targets using publicly available company data.
 
-The system simulates the initial screening process used by investment banks, private equity firms, corporate development teams, and consulting firms when evaluating companies for possible acquisition.
+The project simulates the initial screening process used in investment banking, private equity, corporate finance, and consulting. Instead of manually comparing companies one by one, the model evaluates them using financial, valuation, and risk-related metrics and then generates an acquisition attractiveness score.
 
-Instead of manually analyzing many companies one by one, this project uses a structured scoring framework to evaluate companies based on growth, profitability, valuation, cash flow quality, and financial stability.
+The final output helps identify which companies may be stronger acquisition candidates based on growth, profitability, cash flow quality, valuation, and financial stability.
 
 ---
 
 ## Business Problem
 
-Companies often use mergers and acquisitions to grow faster, enter new markets, acquire new capabilities, increase revenue, or strengthen their competitive position.
+When a company wants to grow through acquisition, it needs to screen many possible target companies before selecting a few for deeper analysis.
 
-However, selecting the right acquisition target is difficult because many companies may appear attractive at first glance. A proper screening process must evaluate both financial performance and valuation.
+This is difficult because each company must be evaluated across multiple factors such as:
 
-This project solves that problem by creating a data-driven acquisition screening model that ranks companies based on their overall attractiveness as acquisition targets.
+* Revenue growth
+* Profitability
+* Cash flow generation
+* Debt levels
+* Market valuation
+* Strategic attractiveness
+
+This project solves the first-level screening problem by creating a structured scoring model that ranks companies based on their acquisition attractiveness.
 
 ---
 
 ## Objective
 
-The objective of this project is to build a system that can:
+The objective of this project is to:
 
-* Collect public financial and market data
-* Analyze company-level financial metrics
-* Evaluate valuation attractiveness
+* Collect public financial data of companies
+* Clean and organize the data
+* Evaluate companies using financial and valuation metrics
 * Create an acquisition attractiveness score
-* Rank companies based on acquisition potential
-* Recommend suitable acquisition targets for a strategic buyer
+* Rank companies from strongest to weakest acquisition targets
+* Generate Excel and CSV outputs for further analysis
+
+---
+
+## Repository Structure
+
+```text
+M&A Target Identification & Acquisition Recommendation System/
+│
+├── data/
+│   ├── sample_illustrative_data.csv
+│   └── target_universe_consumer_food.csv
+│
+├── outputs/
+│   ├── MA_Target_Screen_Template.xlsx
+│   ├── acquisition_screen_output.xlsx
+│   ├── acquisition_target_scores.csv
+│   ├── raw_public_company_data.csv
+│   └── resume_and_interview_pitch.txt
+│
+├── src/
+│   ├── 01_fetch_public_data.py
+│   ├── 02_score_targets.py
+│   └── 03_make_resume_bullets.py
+│
+├── M&A Target Identification & Acquisition Recommendation System Report
+├── README.md
+└── requirements.txt
+```
+
+---
+
+## Files Explained
+
+### `data/sample_illustrative_data.csv`
+
+This file contains sample company-level data used to understand how the model works.
+
+It is useful when public data fetching is not available or when the user wants to test the scoring model quickly.
+
+---
+
+### `data/target_universe_consumer_food.csv`
+
+This file contains the list of companies selected for the acquisition target universe.
+
+The target universe is focused on consumer and food-related companies. These companies are used as potential acquisition candidates.
+
+This file generally includes company names and ticker symbols.
+
+---
+
+### `src/01_fetch_public_data.py`
+
+This script fetches publicly available company data.
+
+It reads the target company universe from the `data` folder and collects public financial and market data for each company.
+
+The output from this script is saved as:
+
+```text
+outputs/raw_public_company_data.csv
+```
+
+---
+
+### `src/02_score_targets.py`
+
+This is the main scoring model.
+
+It takes the company data and calculates acquisition attractiveness scores based on different financial and valuation factors.
+
+The model evaluates companies across categories such as:
+
+* Growth
+* Profitability
+* Cash flow quality
+* Valuation attractiveness
+* Financial stability
+
+The outputs from this script are saved as:
+
+```text
+outputs/acquisition_target_scores.csv
+outputs/acquisition_screen_output.xlsx
+```
+
+---
+
+### `src/03_make_resume_bullets.py`
+
+This script generates project explanation points and interview pitch content.
+
+The output is saved as:
+
+```text
+outputs/resume_and_interview_pitch.txt
+```
+
+This file can be used to understand how to explain the project in interviews.
+
+---
+
+### `outputs/MA_Target_Screen_Template.xlsx`
+
+This is the Excel template for the M&A target screening model.
+
+It can be used to manually review the project structure, scoring logic, and company ranking framework.
+
+---
+
+### `outputs/acquisition_screen_output.xlsx`
+
+This is the final Excel output generated by the scoring model.
+
+It contains the ranked acquisition targets and related financial metrics.
+
+---
+
+### `outputs/acquisition_target_scores.csv`
+
+This file contains the final acquisition attractiveness scores in CSV format.
+
+It can be opened in Excel, Python, or any data analysis tool.
+
+---
+
+### `outputs/raw_public_company_data.csv`
+
+This file contains the raw company data fetched from public sources before final scoring.
+
+---
+
+### `outputs/resume_and_interview_pitch.txt`
+
+This file contains a simple explanation of the project and interview-ready talking points.
 
 ---
 
 ## Methodology
 
-The project follows a structured approach similar to the early-stage screening process used in M&A advisory and private equity.
-
-### 1. Company Universe Selection
-
-A set of publicly listed companies is selected from a chosen sector or industry.
-
-Example sectors:
-
-* FMCG
-* Retail
-* Consumer Goods
-* Healthcare
-* Technology
-* Financial Services
-
-The selected companies form the target universe for acquisition screening.
+The project follows a five-step process.
 
 ---
 
-### 2. Data Collection
+## Step 1: Select Target Universe
 
-The model collects publicly available financial and market data.
+First, a target universe of companies is created.
 
-Possible data sources include:
+In this project, the target universe is focused on consumer and food-related companies.
 
-* Yahoo Finance
-* NSE company data
-* Company annual reports
-* Public financial databases
+The target universe file is stored here:
 
-The dataset may contain the following company-level variables:
+```text
+data/target_universe_consumer_food.csv
+```
 
-* Company name
-* Ticker symbol
-* Sector
-* Industry
-* Market capitalization
-* Revenue growth
-* EBITDA margin
-* Net profit margin
-* Return on equity
-* Return on capital employed
-* Debt-to-equity ratio
-* Free cash flow
-* Price-to-earnings ratio
-* EV/EBITDA
-* Price-to-book ratio
+The model uses this file as the starting point for analysis.
 
 ---
 
-### 3. Data Cleaning
+## Step 2: Fetch Public Financial Data
 
-Before scoring, the raw dataset is cleaned and prepared.
+The script `01_fetch_public_data.py` is used to collect publicly available company data.
 
-This step may include:
+Run:
 
-* Removing duplicate companies
-* Handling missing values
-* Converting text values into numeric values
-* Standardizing financial ratios
-* Removing extreme outliers
-* Preparing the final dataset for scoring
+```bash
+python src/01_fetch_public_data.py
+```
 
----
+This creates:
 
-### 4. Financial Analysis
+```text
+outputs/raw_public_company_data.csv
+```
 
-Each company is evaluated using financial performance indicators.
-
-Companies receive higher scores if they show:
-
-* Strong revenue growth
-* Healthy profitability
-* Positive cash flow generation
-* Reasonable debt levels
-* Stable financial performance
-
-Companies receive lower scores if they show:
-
-* Weak profitability
-* High leverage
-* Poor cash flow generation
-* Expensive valuation
-* Unstable financial performance
+This file contains the raw financial and market data used for further analysis.
 
 ---
 
-### 5. Valuation Analysis
+## Step 3: Score Acquisition Targets
 
-A company may be financially strong but still unattractive if it is too expensive.
+The script `02_score_targets.py` calculates the acquisition attractiveness score.
 
-Therefore, the model evaluates valuation using common market multiples such as:
+Run:
 
-* Price-to-Earnings Ratio
-* EV/EBITDA
-* Price-to-Book Ratio
+```bash
+python src/02_score_targets.py
+```
 
-Companies with reasonable valuations receive better scores than companies that appear overvalued relative to their fundamentals.
+This script evaluates companies across multiple categories.
+
+The final outputs are:
+
+```text
+outputs/acquisition_target_scores.csv
+outputs/acquisition_screen_output.xlsx
+```
 
 ---
 
-### 6. Acquisition Attractiveness Score
+## Step 4: Generate Interview Explanation
 
-The project uses a weighted scoring framework to calculate the final acquisition attractiveness score.
+The script `03_make_resume_bullets.py` generates a project explanation and interview pitch.
 
-Example weight structure:
+Run:
+
+```bash
+python src/03_make_resume_bullets.py
+```
+
+This creates:
+
+```text
+outputs/resume_and_interview_pitch.txt
+```
+
+---
+
+## Step 5: Review Final Output
+
+After running all scripts, open:
+
+```text
+outputs/acquisition_screen_output.xlsx
+```
+
+or
+
+```text
+outputs/acquisition_target_scores.csv
+```
+
+These files contain the final ranked list of acquisition targets.
+
+---
+
+## How to Run the Project
+
+### Step 1: Install Python
+
+Make sure Python is installed on your system.
+
+Recommended version:
+
+```text
+Python 3.9 or above
+```
+
+---
+
+### Step 2: Clone the Repository
+
+```bash
+git clone https://github.com/your-username/your-repository-name.git
+cd your-repository-name
+```
+
+Replace `your-username` and `your-repository-name` with your actual GitHub details.
+
+---
+
+### Step 3: Install Required Libraries
+
+```bash
+pip install -r requirements.txt
+```
+
+If the above command does not work, install the required libraries manually:
+
+```bash
+pip install pandas numpy yfinance openpyxl
+```
+
+---
+
+### Step 4: Run Data Fetching Script
+
+```bash
+python src/01_fetch_public_data.py
+```
+
+This will fetch public company data and save it in:
+
+```text
+outputs/raw_public_company_data.csv
+```
+
+---
+
+### Step 5: Run Scoring Script
+
+```bash
+python src/02_score_targets.py
+```
+
+This will calculate acquisition attractiveness scores and save the results in:
+
+```text
+outputs/acquisition_target_scores.csv
+outputs/acquisition_screen_output.xlsx
+```
+
+---
+
+### Step 6: Generate Project Explanation File
+
+```bash
+python src/03_make_resume_bullets.py
+```
+
+This will create:
+
+```text
+outputs/resume_and_interview_pitch.txt
+```
+
+---
+
+## Full Command Flow
+
+Run these commands in order:
+
+```bash
+pip install -r requirements.txt
+python src/01_fetch_public_data.py
+python src/02_score_targets.py
+python src/03_make_resume_bullets.py
+```
+
+---
+
+## How the Model Works
+
+The model calculates an acquisition attractiveness score using multiple financial and valuation factors.
+
+The main scoring categories are:
+
+| Category            | Meaning                                                   |
+| ------------------- | --------------------------------------------------------- |
+| Growth              | Measures how fast the company is growing                  |
+| Profitability       | Measures how efficiently the company generates profit     |
+| Cash Flow Quality   | Measures whether the company generates healthy cash flows |
+| Valuation           | Checks whether the company is reasonably priced           |
+| Financial Stability | Measures balance sheet strength and risk                  |
+
+---
+
+## Acquisition Attractiveness Score
+
+The model uses a weighted scoring approach.
+
+Example structure:
 
 | Metric Category          | Weight |
 | ------------------------ | -----: |
@@ -161,439 +410,135 @@ Acquisition Attractiveness Score =
 (Financial Stability Score × 10%)
 ```
 
-Companies are then ranked from highest to lowest score.
+Companies with higher final scores are considered stronger acquisition candidates.
 
 ---
 
-## Project Workflow
+## How to Use the Output
+
+After running the model, open:
 
 ```text
-Raw Company Data
-        |
-        v
-Data Cleaning and Processing
-        |
-        v
-Financial Ratio Analysis
-        |
-        v
-Valuation Analysis
-        |
-        v
-Weighted Scoring Model
-        |
-        v
-Acquisition Target Ranking
-        |
-        v
-Final Recommendation
+outputs/acquisition_screen_output.xlsx
 ```
 
----
+This Excel file contains the final ranked acquisition targets.
 
-## Folder Structure
+You can use it to:
 
-```text
-M-A-Target-Identification-System/
-│
-├── data/
-│   ├── raw/
-│   │   └── target_universe.csv
-│   │
-│   └── processed/
-│       └── cleaned_financial_data.csv
-│
-├── notebooks/
-│   └── analysis.ipynb
-│
-├── src/
-│   ├── data_collection.py
-│   ├── scoring_model.py
-│   └── ranking_engine.py
-│
-├── outputs/
-│   ├── ranked_targets.xlsx
-│   └── acquisition_ranking.csv
-│
-├── README.md
-├── requirements.txt
-└── LICENSE
-```
+* Identify top acquisition candidates
+* Compare financial metrics across companies
+* Review acquisition scores
+* Shortlist companies for deeper due diligence
+* Prepare a presentation or project discussion
 
 ---
 
-## Technologies Used
+## How to Interpret Scores
 
-* Python
-* Pandas
-* NumPy
-* yFinance
-* OpenPyXL
-* Excel
-* Jupyter Notebook
+| Score Range | Interpretation            |
+| ----------: | ------------------------- |
+|      85–100 | Strong acquisition target |
+|       70–84 | Good acquisition target   |
+|       55–69 | Watchlist candidate       |
+|    Below 55 | Low-priority target       |
 
----
-
-## Installation
-
-### Step 1: Clone the Repository
-
-```bash
-git clone https://github.com/your-username/M-A-Target-Identification-System.git
-cd M-A-Target-Identification-System
-```
-
-### Step 2: Create a Virtual Environment
-
-For Windows:
-
-```bash
-python -m venv venv
-venv\Scripts\activate
-```
-
-For macOS/Linux:
-
-```bash
-python3 -m venv venv
-source venv/bin/activate
-```
-
-### Step 3: Install Required Libraries
-
-```bash
-pip install -r requirements.txt
-```
-
-If `requirements.txt` is not available, install the main libraries manually:
-
-```bash
-pip install pandas numpy yfinance openpyxl matplotlib
-```
+A high score does not mean the company should definitely be acquired. It means the company looks attractive at the initial screening stage and should be studied further.
 
 ---
 
-## How to Use the Data
+## Example Output
 
-### Input Data
-
-The model requires a company universe file.
-
-Place the input file inside:
-
-```text
-data/raw/target_universe.csv
-```
-
-The input file should contain at least:
-
-```text
-Company Name
-Ticker
-Sector
-Industry
-```
-
-Example:
-
-| Company Name | Ticker      | Sector         | Industry      |
-| ------------ | ----------- | -------------- | ------------- |
-| Company A    | COMPANYA.NS | Consumer Goods | FMCG          |
-| Company B    | COMPANYB.NS | Consumer Goods | Retail        |
-| Company C    | COMPANYC.NS | Consumer Goods | Food Products |
-
-The ticker should follow the format supported by Yahoo Finance. For Indian listed companies, NSE tickers usually end with `.NS`.
-
-Example:
-
-```text
-RELIANCE.NS
-TATACONSUM.NS
-HINDUNILVR.NS
-DABUR.NS
-MARICO.NS
-```
+| Rank | Company   | Final Acquisition Score | Interpretation |
+| ---: | --------- | ----------------------: | -------------- |
+|    1 | Company A |                      91 | Strong Target  |
+|    2 | Company B |                      84 | Good Target    |
+|    3 | Company C |                      72 | Good Target    |
+|    4 | Company D |                      61 | Watchlist      |
 
 ---
 
-## How to Run the Project
+## Business Use Case
 
-### Step 1: Collect Financial Data
+Suppose a large consumer goods company wants to acquire smaller companies in the food or FMCG sector.
 
-Run the data collection script:
+This model can help by:
 
-```bash
-python src/data_collection.py
-```
+1. Creating a list of possible target companies
+2. Collecting their financial and market data
+3. Comparing them using a standard framework
+4. Ranking the companies based on acquisition attractiveness
+5. Shortlisting the strongest targets for deeper analysis
 
-This script fetches financial and market data for the companies listed in `data/raw/target_universe.csv`.
-
-The output is saved in:
-
-```text
-data/processed/cleaned_financial_data.csv
-```
+This is similar to the first step used by investment banking, private equity, and corporate finance teams.
 
 ---
 
-### Step 2: Run the Scoring Model
+## What I Did in This Project
 
-After collecting and cleaning the data, run:
+In this project, I built a complete acquisition screening framework.
 
-```bash
-python src/scoring_model.py
-```
+The work included:
 
-This script calculates individual scores for:
+* Creating a target universe of consumer and food-related companies
+* Fetching public financial and market data
+* Cleaning and organizing the dataset
+* Designing a weighted scoring model
+* Ranking companies based on acquisition attractiveness
+* Creating Excel and CSV outputs for analysis
+* Preparing an interview explanation file for project discussion
 
-* Growth
-* Profitability
-* Cash flow quality
-* Valuation attractiveness
-* Financial stability
-
-It then calculates the final acquisition attractiveness score.
+The project combines finance, data analysis, valuation thinking, and strategic decision-making.
 
 ---
 
-### Step 3: Generate Final Ranking
+## Key Learnings
 
-Run:
+Through this project, I learned how companies can be compared as potential acquisition targets using financial and valuation metrics.
 
-```bash
-python src/ranking_engine.py
-```
+The project helped me understand that a good acquisition target should not be judged only by revenue growth. A strong target should also have:
 
-This script ranks the companies from most attractive to least attractive acquisition targets.
+* Good profitability
+* Reasonable valuation
+* Healthy cash flow
+* Manageable debt
+* Strong financial stability
 
-The final ranked output is saved in:
-
-```text
-outputs/acquisition_ranking.csv
-outputs/ranked_targets.xlsx
-```
-
----
-
-## How the Model Works
-
-The model evaluates each company across five major categories.
-
-### 1. Growth Score
-
-The growth score measures how fast the company is expanding.
-
-Typical metrics:
-
-* Revenue growth
-* Sales growth
-* EBITDA growth
-
-A company with higher growth receives a higher score.
-
----
-
-### 2. Profitability Score
-
-The profitability score measures how efficiently the company converts revenue into profit.
-
-Typical metrics:
-
-* EBITDA margin
-* Net profit margin
-* ROE
-* ROCE
-
-A company with stronger profitability receives a higher score.
-
----
-
-### 3. Cash Flow Score
-
-The cash flow score measures the quality and sustainability of the company's cash generation.
-
-Typical metrics:
-
-* Free cash flow
-* Operating cash flow
-* Cash conversion
-
-A company with positive and stable cash flows receives a higher score.
-
----
-
-### 4. Valuation Score
-
-The valuation score checks whether the company is reasonably priced.
-
-Typical metrics:
-
-* P/E ratio
-* EV/EBITDA
-* Price-to-book ratio
-
-A company with strong fundamentals and reasonable valuation receives a higher score.
-
----
-
-### 5. Financial Stability Score
-
-The financial stability score measures risk in the company's balance sheet.
-
-Typical metrics:
-
-* Debt-to-equity ratio
-* Interest coverage ratio
-* Liquidity position
-
-A company with lower leverage and better financial stability receives a higher score.
-
----
-
-## Output Files
-
-After running the full project, the output folder will contain:
-
-### 1. acquisition_ranking.csv
-
-This file contains the final ranked list of companies.
-
-Typical columns:
-
-```text
-Rank
-Company Name
-Ticker
-Sector
-Growth Score
-Profitability Score
-Cash Flow Score
-Valuation Score
-Financial Stability Score
-Final Acquisition Score
-Recommendation
-```
-
----
-
-### 2. ranked_targets.xlsx
-
-This Excel file contains the final ranking in a user-friendly format.
-
-It can be used for:
-
-* Reviewing top acquisition targets
-* Creating charts
-* Preparing presentations
-* Shortlisting companies for further analysis
-
----
-
-## How to Interpret the Results
-
-The companies with the highest acquisition attractiveness scores are the strongest potential acquisition candidates based on the model.
-
-Example:
-
-| Rank | Company   | Final Score | Recommendation |
-| ---: | --------- | ----------: | -------------- |
-|    1 | Company A |          91 | Strong Target  |
-|    2 | Company B |          84 | Good Target    |
-|    3 | Company C |          76 | Watchlist      |
-|    4 | Company D |          62 | Low Priority   |
-
-### Recommendation Logic
-
-The model can classify companies as:
-
-| Score Range | Recommendation |
-| ----------: | -------------- |
-|      85–100 | Strong Target  |
-|       70–84 | Good Target    |
-|       55–69 | Watchlist      |
-|    Below 55 | Low Priority   |
-
----
-
-## Example Use Case
-
-Suppose a large consumer goods company wants to acquire smaller companies in the FMCG or food products sector.
-
-The model can be used to:
-
-1. Create a list of potential target companies.
-2. Collect financial and valuation data.
-3. Score each company.
-4. Rank the companies.
-5. Identify the top acquisition candidates.
-6. Perform deeper due diligence on the highest-ranked firms.
-
-This helps reduce manual screening time and makes the decision-making process more structured.
-
----
-
-## Business Applications
-
-This project can be useful in:
-
-### Investment Banking
-
-* M&A target screening
-* Deal origination
-* Strategic advisory
-
-### Private Equity
-
-* Deal sourcing
-* Investment screening
-* Target company evaluation
-
-### Corporate Development
-
-* Acquisition strategy
-* Competitor analysis
-* Expansion planning
-
-### Consulting
-
-* Market consolidation studies
-* Industry attractiveness analysis
-* Growth strategy projects
+The scoring model helped convert multiple financial indicators into one structured ranking system.
 
 ---
 
 ## Limitations
 
-This model is designed for preliminary screening only.
+This model is only for preliminary target screening.
 
 It does not replace full due diligence.
 
-Important limitations include:
+Important limitations:
 
-* Public data may be incomplete or delayed
-* Financial ratios may vary across industries
-* Qualitative factors are not fully captured
+* Public data may be incomplete
+* Market data may change frequently
+* Industry-specific factors are not fully captured
 * Management quality is not directly measured
-* Synergy potential is not fully quantified
-* Legal, tax, and regulatory issues are not included
+* Synergy potential is not fully estimated
+* Legal, tax, and regulatory risks are not included
 
-Before making an actual acquisition decision, the shortlisted companies should be analyzed further through detailed due diligence.
+Before making any real acquisition decision, the shortlisted companies should be evaluated through detailed due diligence.
 
 ---
 
 ## Future Improvements
 
-The project can be improved by adding:
+The project can be improved further by adding:
 
-* DCF valuation module
+* DCF valuation model
 * Synergy estimation module
 * Industry-specific scoring weights
+* Peer benchmarking
 * Power BI dashboard
 * Streamlit web application
-* Machine learning-based target prediction
 * Qualitative scoring for management quality
 * Scenario analysis for different acquisition assumptions
-* Peer benchmarking module
 
 ---
 
