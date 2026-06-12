@@ -1,0 +1,11 @@
+company,ticker,sector,industry,strategic_fit_score,market_cap_cr,enterprise_value_cr,revenue_ttm_cr,revenue_growth_pct,ebitda_margin_pct,free_cash_flow_cr,debt_to_equity,roe_pct,ev_to_revenue,ev_to_ebitda,data_note
+Mrs. Bectors Food Specialities,BECTORFOOD.NS,Consumer,Packaged Foods,9,8500,8300,1700,18,14,120,0.15,17,4.88,34.9,ILLUSTRATIVE ONLY - replace with fetched public data
+Bikaji Foods International,BIKAJI.NS,Consumer,Packaged Foods,9,19000,18500,2500,16,13,150,0.10,16,7.40,56.9,ILLUSTRATIVE ONLY - replace with fetched public data
+Prataap Snacks,DIAMONDYD.NS,Consumer,Packaged Foods,8,2500,2600,1700,10,8,35,0.25,9,1.53,19.1,ILLUSTRATIVE ONLY - replace with fetched public data
+LT Foods,LTFOODS.NS,Consumer,Packaged Foods,7,12000,13000,8000,12,11,500,0.55,18,1.63,14.8,ILLUSTRATIVE ONLY - replace with fetched public data
+KRBL,KRBL.NS,Consumer,Packaged Foods,7,9000,8500,5300,8,18,450,0.05,13,1.60,8.9,ILLUSTRATIVE ONLY - replace with fetched public data
+Dodla Dairy,DODLA.NS,Consumer,Dairy,8,6000,5900,3200,9,10,130,0.12,14,1.84,18.4,ILLUSTRATIVE ONLY - replace with fetched public data
+Heritage Foods,HERITGFOOD.NS,Consumer,Dairy,7,5000,5100,3800,11,6,90,0.20,13,1.34,22.4,ILLUSTRATIVE ONLY - replace with fetched public data
+Jubilant FoodWorks,JUBLFOOD.NS,Consumer,Food Services,6,42000,44000,5600,9,20,350,0.40,15,7.86,39.3,ILLUSTRATIVE ONLY - replace with fetched public data
+Devyani International,DEVYANI.NS,Consumer,Food Services,6,21000,23000,3900,18,17,260,0.75,12,5.90,34.7,ILLUSTRATIVE ONLY - replace with fetched public data
+Vadilal Industries,VADILALIND.NS,Consumer,Foods,8,3300,3600,1200,14,16,110,0.35,20,3.00,18.8,ILLUSTRATIVE ONLY - replace with fetched public data

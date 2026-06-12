@@ -1,0 +1,35 @@
+company,ticker,sector,industry,strategic_fit_score,why_fit
+Mrs. Bectors Food Specialities,BECTORFOOD.NS,Consumer,Packaged Foods,9,Bakery and biscuits adjacency
+Bikaji Foods International,BIKAJI.NS,Consumer,Packaged Foods,9,Snacks and ethnic foods
+Prataap Snacks,DIAMONDYD.NS,Consumer,Packaged Foods,8,Snacks portfolio
+LT Foods,LTFOODS.NS,Consumer,Packaged Foods,7,Rice and packaged foods export brand
+KRBL,KRBL.NS,Consumer,Packaged Foods,7,Rice and premium food brand
+ADF Foods,ADFFOODS.NS,Consumer,Packaged Foods,7,Packaged ethnic foods
+Tasty Bite Eatables,TASTYBITE.NS,Consumer,Packaged Foods,7,Ready-to-eat packaged food
+Hatsun Agro Product,HATSUN.NS,Consumer,Dairy,8,Dairy and cold-chain adjacency
+Dodla Dairy,DODLA.NS,Consumer,Dairy,8,Dairy acquisition candidate
+Heritage Foods,HERITGFOOD.NS,Consumer,Dairy,7,Dairy and regional distribution
+Parag Milk Foods,PARAGMILK.NS,Consumer,Dairy,6,Dairy and value-added milk products
+Zomato,ZOMATO.NS,Consumer,Food Services,6,Consumer food-tech platform
+Jubilant FoodWorks,JUBLFOOD.NS,Consumer,Food Services,6,QSR distribution and brands
+Devyani International,DEVYANI.NS,Consumer,Food Services,6,QSR franchise platform
+Sapphire Foods India,SAPPHIRE.NS,Consumer,Food Services,6,QSR franchise platform
+Westlife Foodworld,WESTLIFE.NS,Consumer,Food Services,6,QSR platform
+Speciality Restaurants,SPECIALITY.NS,Consumer,Food Services,5,Restaurant brand platform
+Barbeque-Nation Hospitality,BARBEQUE.NS,Consumer,Food Services,5,Restaurant brand platform
+Varun Beverages,VBL.NS,Consumer,Beverages,5,Beverage distribution platform
+United Breweries,UBL.NS,Consumer,Beverages,3,Alcohol excluded from most strategic buyers
+Radico Khaitan,RADICO.NS,Consumer,Beverages,2,Alcohol business not direct fit
+Dabur India,DABUR.NS,Consumer,FMCG,6,FMCG distribution and brands
+Marico,MARICO.NS,Consumer,FMCG,6,FMCG distribution and brands
+Emami,EMAMILTD.NS,Consumer,FMCG,6,FMCG personal care brand
+Godrej Consumer Products,GODREJCP.NS,Consumer,FMCG,5,FMCG but likely expensive
+Colgate-Palmolive India,COLPAL.NS,Consumer,FMCG,4,Strong brand but less food adjacency
+Jyothy Labs,JYOTHYLAB.NS,Consumer,FMCG,5,FMCG category adjacency
+Vadilal Industries,VADILALIND.NS,Consumer,Foods,8,Frozen foods and ice cream
+Foods and Inns,FOODSIN.NS,Consumer,Foods,7,Processed food exports
+Kohinoor Foods,KOHINOOR.NS,Consumer,Foods,5,Rice/food brand but risk review needed
+Avanti Feeds,AVANTIFEED.NS,Consumer,Agri/Food,5,Aquaculture feed and food exports
+Venky's India,VENKEYS.NS,Consumer,Agri/Food,4,Poultry/agri food adjacency
+HMA Agro Industries,HMAAGRO.NS,Consumer,Food Exports,5,Frozen meat export but fit depends on buyer
+Adani Wilmar,AWL.NS,Consumer,Edible Oils/Foods,6,Edible oil and packaged staples
